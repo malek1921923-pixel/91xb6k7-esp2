@@ -1,0 +1,27 @@
+name: Build JAGUAR-X99Z PANEL DLL
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build Release x64
+        run: msbuild ImguiPortifolio15.sln /m /p:Configuration=Release /p:Platform=x64
+
+      - name: Upload DLL Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: JAGUAR-X99Z-PANEL-DLL
+          path: bin/*.dll
