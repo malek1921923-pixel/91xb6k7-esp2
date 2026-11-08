@@ -1,0 +1,16 @@
+vsbuild/
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.iobj
+*.ipdb
+*.tlog
+*.log
+*.recipe
+*.lastbuildstate
+*.vcxproj.user
+.vs/
+thirdparty/freetype-source/
+project_info.txt
+*.bat
